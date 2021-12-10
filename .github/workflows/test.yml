@@ -1,0 +1,22 @@
+name: Action self-test
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  test-action:
+    name: Publish release to Notion
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        # path fixes issue "MODULE_NOT_FOUND" when testing yet unpushed changes
+        # see: https://github.com/nektos/act#module_not_found
+        with:
+          path: "github-release-slack-notification"
+
+      - name: Test the action locally
+        uses: ./
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
