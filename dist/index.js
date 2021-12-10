@@ -2413,8 +2413,6 @@ const postSlackMessage = async (slackWebhookUrl, slackMessage) => {
 const buildSlackMessageBody = (release) => {
   const {
     body,
-    name,
-    html_url,
     published_at,
     tag_name,
     author
@@ -2490,13 +2488,10 @@ async function run() {
       }
     } = github.context;
     const releaseNotes = buildSlackMessageBody(release);
-    console.log(util.inspect(releaseNotes, { depth: null }));
-    console.log('------------------------------');
-    console.log(JSON.stringify(releaseNotes, null, 2));
-    console.log('------------------------------');
     await postSlackMessage(SLACK_WEBHOOK_URL, releaseNotes);
   } catch (err) {
     console.error(err);
+    core.setFailed(err.message);
   }
 }
 
