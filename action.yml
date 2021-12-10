@@ -7,9 +7,6 @@ inputs:
   slack_webhook_url:
     description: Notion webhook URL
     required: true
-  github_token:
-    description: A github personal access token
-    required: true
 
 runs:
   using: node12

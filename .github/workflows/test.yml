@@ -10,12 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        # path fixes issue "MODULE_NOT_FOUND" when testing yet unpushed changes
         # see: https://github.com/nektos/act#module_not_found
-        # with:
-        #   path: "/Users/matmar10/Projects/OpenSource/github-release-slack-notification"
       - name: Test the action locally
         uses: ./
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
