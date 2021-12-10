@@ -1,0 +1,49 @@
+{
+  "name": "github-release-slack-notification",
+  "version": "1.0.0",
+  "description": "Automatically post beautiful release notes to Slack",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js",
+    "release": "release-it --ci",
+    "prerelease": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/matmar10/github-release-slack-notification.git"
+  },
+  "keywords": [
+    "Github",
+    "Actions",
+    "action",
+    "release",
+    "slack",
+    "notification",
+    "app",
+    "release",
+    "notes",
+    "conventional",
+    "commit"
+  ],
+  "author": "Matthew J. Martin <matthew.mar10@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matmar10/github-release-slack-notification/issues"
+  },
+  "homepage": "https://github.com/matmar10/github-release-slack-notification#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "moment": "^2.29.1",
+    "slackify-markdown": "^4.3.1",
+    "superagent": "^6.1.0"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^3.3.0",
+    "@zeit/ncc": "^0.22.3",
+    "eslint": "^8.4.1",
+    "eslint-plugin-es-beautifier": "^1.0.1",
+    "release-it": "^14.11.8"
+  }
+}
