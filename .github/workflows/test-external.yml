@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: matmar10/slack-release
+      - uses: matmar10/slack-release@v2
         with:
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
