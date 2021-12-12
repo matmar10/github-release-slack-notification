@@ -1,4 +1,4 @@
-name: Action self-test
+name: Action self-test using remote repo
 
 on:
   release:
